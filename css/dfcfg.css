@@ -1,0 +1,30 @@
+body {
+  background: url('../img/binding_dark.png') repeat;
+}
+
+.dfcfg-main {
+  position: relative;
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.dfcfg-text {
+  line-height: 75px;
+}
+
+.blue {
+  color: #4099FF;
+}
+
+.quake-logo {
+  background: url('../img/q3logo.png') no-repeat;
+  min-width: 256px;
+  min-height: 256px;
+  top: auto;
+  bottom: 0px;
+  right: 0px;
+  left: auto;
+  position: fixed; 
+}
