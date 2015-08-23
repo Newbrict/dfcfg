@@ -1,405 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DeFRaG config generator">
-    <meta name="author" content="Newbrict">
-    <title>Newbrict's Defrag Config Generator</title>
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <!-- dfcfg custom CSS -->
-    <link href="css/dfcfg.css" rel="stylesheet">
-  </head>
-  <body>
-  <div class="quake-logo"></div>
-  <div class="dfcfg-main">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h2>Newbrict's DeFRaG Configuration Generator</h1>
-      </div>
-      <div class="panel-body">
-        <form name="config" id="config" action="dl.php" method="post" class="form-inline" role="form">
-          <div class ="row">
-            <div class="col-sm-10">
-              <h3>Graphics Settings</h3>
-            </div>
-          </div> 
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-sm-3 dfcfg-text">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="r_fullscreen" id="r_fullscreen" checked> Fullscreen
-                    </label>
-                  </div>
-                </div>
-                <div class="col-sm-3 dfcfg-text">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="r_fastsky" id="r_fastsky"> Disable Skybox 
-                    </label>
-                  </div>
-                </div>
-                <div class="col-sm-2 dfcfg-text">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="r_fullbright" id="r_fullbright"> Fullbright 
-                    </label>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <label for="r_picmip" class="control-label">
-                  Texture Smoothing 
-                  <span name="r_picmip_info" id="r_picmip_info"
-                        class="glyphicon glyphicon-info-sign blue" 
-                        title="r_picmip"
-                        data-placement="right"
-                        data-toggle="tooltip"
-                        data-html="true">
-                  </span>
-                  </label>
-                  <select class="form-control" name="r_picmip" id="r_picmip">
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                  </select>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-4 dfcfg-text">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="r_mode" id="r_mode" checked> Custom Resolution
-                    </label>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <label for="r_customwidth" class="control-label">Resolution Width</label>
-                  <input class="form-control" name="r_customwidth" id="r_customwidth">
-                </div>
-                <div class="col-sm-4">
-                  <label for="r_customheight" class="control-label">Resolution Height</label>
-                  <input class="form-control" name="r_customheight" id="r_customheight">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class ="row">
-            <div class="col-lg-12">
-              <h3>Mouse Settings</h3>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-sm-4 dfcfg-text">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="cl_mouseaccel" id="cl_mouseaccel"> Mouse Acceleration 
-                    </label>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <label for="in_mouse" class="control-label">
-                  Mouse Initialization
-                  <span name="in_mouse_info" id="in_mouse_info"
-                        class="glyphicon glyphicon-info-sign blue" 
-                        title="in_mouse"
-                        data-placement="right"
-                        data-toggle="tooltip"
-                        data-html="true">
-                  </span>
-                  </label>
-                  <select class="form-control" name="in_mouse" id="in_mouse">
-                    <option>-1</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option selected>3</option>
-                  </select>
-                </div>
-                <div class="col-sm-4">
-                  <label for="sensitivity" class="control-label">
-                  Sensitivity
-                  <span name="sensitivity_info" id="sensitivity_info"
-                        class="btn btn-info btn-xs glyphicon glyphicon-question-sign" 
-                        data-original-title="Sensitivity"
-                        data-content="Injx has a great mouse page <a href='http://www.funender.com/quake/mouse/index.html'>Here</a>"
-                        data-placement="top"
-                        data-toggle="popover"
-                        data-html="true">
-                  </span>
-                  </label>
-                  <input class="form-control" name="sensitivity" id="sensitivity" value="17.25">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class ="row">
-            <div class="col-sm-12">
-              <h3>Game Settings</h3>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-sm-6">
-                  <label for="df_mp_nodrawradius" class="control-label">Player Nodraw Radius</label>
-                  <input class="form-control" name="df_mp_nodrawradius" id="df_mp_nodrawradius" value="55">
-                  <div class="checkbox dfcfg-text">
-                    <label>
-                      <input type="checkbox" name="cg_bob" id="cg_bob" checked> Disable View Bobbing 
-                    </label>
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <label for="cg_fov" class="control-label">Field Of View</label>
-                  <input class="form-control" name="cg_fov" id="cg_fov">
-                  <label for="cg_zoomfov" class="control-label">Zoom Field Of View</label>
-                  <input class="form-control" name="cg_zoomfov" id="cg_zoomfov" value="10">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class ="row">
-            <div class="col-sm-12">
-              <h3>HUD Settings</h3>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-sm-4">
-                  <div class="checkbox dfcfg-text">
-                    <label>
-                      <input type="checkbox" name="cg_drawtimer" id="cg_drawtimer" checked>Draw Map Time 
-                    </label>
-                  </div>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="cg_drawfps" id="cg_drawfps" checked>Draw FPS 
-                    </label>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <label for="cg_drawcrosshair" class="control-label">Crosshair Style</label>
-                  <select class="form-control" name="cg_drawcrosshair" id="cg_drawcrosshair">
-                    <option>0</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option selected>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                  </select>
-                  <label for="cg_crosshairsize" class="control-label">Crosshair Size</label>
-                  <input class="form-control" name="cg_crosshairsize" id="cg_crosshairsize" value="20">
-                </div>
-                <div class="col-sm-4">
-                  <label for="df_hud_cgaz" class="control-label">CGAZ Hud Style</label>
-                  <input class="form-control" name="df_hud_cgaz" id="df_hud_cgaz" value="9">
-                  <label for="df_hud_cgaz_ypos" class="control-label">CGAZ Hud Y Position</label>
-                  <input class="form-control" name="df_hud_cgaz_ypos" id="df_hud_cgaz_ypos" value="253">
-                </div>
-              </div>
-              <div class="row">
-                <hr>
-                <div class="col-sm-12">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="df_chs0_draw" id="df_chs0_draw" checked> Draw CHS0
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <hr>
-                <div class="col-sm-3">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="df_chs1_draw" id="df_chs1_draw" checked> Draw CHS1
-                    </label>
-                  </div>
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs1_fontsize" class="control-label">Font Size</label>
-                  <input class="form-control" name="df_chs1_fontsize" id="df_chs1_fontsize" value="7">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs1_fonttransparency" class="control-label">Font Transparency</label>
-                  <input class="form-control" name="df_chs1_fonttransparency" id="df_chs1_fonttransparency" value="0.75">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs1_info1" class="control-label">Info 1</label>
-                  <input class="form-control" name="df_chs1_info1" id="df_chs1_info1" value="40">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs1_info2" class="control-label">Info 2</label>
-                  <input class="form-control" name="df_chs1_info2" id="df_chs1_info2" value="">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs1_info3" class="control-label">Info 3</label>
-                  <input class="form-control" name="df_chs1_info3" id="df_chs1_info3" value="23">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs1_info4" class="control-label">Info 4</label>
-                  <input class="form-control" name="df_chs1_info4" id="df_chs1_info4" value="">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs1_info5" class="control-label">Info 5</label>
-                  <input class="form-control" name="df_chs1_info5" id="df_chs1_info5" value="">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs1_info6" class="control-label">Info 6</label>
-                  <input class="form-control" name="df_chs1_info6" id="df_chs1_info6" value="">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs1_info7" class="control-label">Info 7</label>
-                  <input class="form-control" name="df_chs1_info7" id="df_chs1_info7" value="210">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs1_info8" class="control-label">Info 8</label>
-                  <input class="form-control" name="df_chs1_info8" id="df_chs1_info8" value="">
-                </div>
-              </div>
-              <div class="row">
-                <hr>
-                <div class="col-sm-3">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="df_chs2_draw" id="df_chs2_draw" checked> Draw CHS2
-                    </label>
-                  </div>
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs2_fontsize" class="control-label">Font Size</label>
-                  <input class="form-control" name="df_chs2_fontsize" id="df_chs2_fontsize" value="7">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs2_offsetx" class="control-label">Horizontal Offset</label>
-                  <input class="form-control" name="df_chs2_offsetx" id="df_chs2_offsetx" value="-300">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs2_offsety" class="control-label">Vertical Offset</label>
-                  <input class="form-control" name="df_chs2_offsety" id="df_chs2_offsety" value="150">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs2_info1" class="control-label">Info 1</label>
-                  <input class="form-control" name="df_chs2_info1" id="df_chs2_info1" value="301">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs2_info2" class="control-label">Info 2</label>
-                  <input class="form-control" name="df_chs2_info2" id="df_chs2_info2" value="302">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs2_info3" class="control-label">Info 3</label>
-                  <input class="form-control" name="df_chs2_info3" id="df_chs2_info3" value="228">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs2_info4" class="control-label">Info 4</label>
-                  <input class="form-control" name="df_chs2_info4" id="df_chs2_info4" value="14">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs2_info5" class="control-label">Info 5</label>
-                  <input class="form-control" name="df_chs2_info5" id="df_chs2_info5" value="2031">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs2_info6" class="control-label">Info 6</label>
-                  <input class="form-control" name="df_chs2_info6" id="df_chs2_info6" value="3041">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs2_info7" class="control-label">Info 7</label>
-                  <input class="form-control" name="df_chs2_info7" id="df_chs2_info7" value="140">
-                </div>
-                <div class="col-sm-3">
-                  <label for="df_chs2_info8" class="control-label">Info 8</label>
-                  <input class="form-control" name="df_chs2_info8" id="df_chs2_info8" value="56">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <h3>Network Settings</h3>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-sm-3">
-                  <label for="rate" class="control-label">Rate</label>
-                  <input class="form-control" name="rate" id="rate" value="25000">
-                </div>
-                <div class="col-sm-3">
-                  <label for="snaps" class="control-label">Snaps</label>
-                  <input class="form-control" name="snaps" id="snaps" value="125">
-                </div>
-                <div class="col-sm-3">
-                  <label for="cl_maxpackets" class="control-label">
-                  Max Packets
-                  <span name="cl_maxpackets_info" id="cl_maxpackets_info"
-                        class="glyphicon glyphicon-info-sign blue" 
-                        title="cl_maxpackets"
-                        data-placement="right"
-                        data-toggle="tooltip"
-                        data-html="true">
-                  </span>
-                  </label>
-                  <input class="form-control" name="cl_maxpackets" id="cl_maxpackets" value="125">
-                </div>
-                <div class="col-sm-3">
-                  <label for="cl_packetdup" class="control-label">Packet Duplicates</label>
-                  <input class="form-control" name="cl_packetdup" id="cl_packetdup" value="0">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <h3>Miscellaneous Settings</h3>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-sm-12">
-                  <label for="df_name" class="control-label">DeFRaG Demo Name</label>
-                  <input class="form-control" name="df_name" id="df_name" value="Unnamed Player">
-                </div>
-              </div>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary col-sm-12">Generate</button>
-        </form>
-      </div>
-    </div>
-  </div>
-  <!-- Jquery -->
-  <script src="js/jquery.js" type="text/javascript"></script>
-  <!-- Bootstrap core JS -->
-  <script src="js/bootstrap.js" type="text/javascript"></script>
-  <!-- some other JS -->
-  <script type="text/javascript">
-     form = document.forms["config"];
-     form.elements["r_customwidth"].value = screen.width;
-     form.elements["r_customheight"].value = screen.height;
-     form.elements["cg_fov"].value = Math.round((screen.width/screen.height)*78.75);
-     $("#r_picmip_info").tooltip();
-     $("#in_mouse_info").tooltip();
-     $("#cl_maxpackets_info").tooltip();
-     $("#sensitivity_info").popover();
-  </script>
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="DeFRaG config generator">
+		<meta name="author" content="Newbrict">
+		<link rel="shortcut icon" href="http://dimit.me/dfcfg/favicon.ico?v=3">
+		<title>Newbrict's Defrag Config Generator</title>
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- dfcfg custom CSS -->
+		<link href="css/dfcfg.css" rel="stylesheet">
+	</head>
+	<body>
+	<div class="quake-logo"></div>
+	<div class="dfcfg-main">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>Newbrict's DeFRaG Configuration Generator</h1>
+			</div>
+			<div class="panel-body">
+				<form name="config" id="config" action="dl.php" method="post" class="form-inline" role="form">
+					<div class ="row">
+						<div class="col-sm-10">
+							<h3>Graphics Settings</h3>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-sm-3 dfcfg-text">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="r_fullscreen" id="r_fullscreen" checked> Fullscreen
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-3 dfcfg-text">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="r_fastsky" id="r_fastsky"> Disable Skybox
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-2 dfcfg-text">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="r_fullbright" id="r_fullbright"> Fullbright
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<label for="r_picmip" class="control-label">
+									Texture Smoothing
+									<span name="r_picmip_info" id="r_picmip_info"
+												class="glyphicon glyphicon-info-sign blue"
+												title="r_picmip"
+												data-placement="right"
+												data-toggle="tooltip"
+												data-html="true">
+									</span>
+									</label>
+									<select class="form-control" name="r_picmip" id="r_picmip">
+										<option>0</option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+										<option>7</option>
+										<option>8</option>
+										<option>9</option>
+										<option>10</option>
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-4 dfcfg-text">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="r_mode" id="r_mode" checked> Custom Resolution
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<label for="r_customwidth" class="control-label">Resolution Width</label>
+									<input class="form-control" name="r_customwidth" id="r_customwidth">
+								</div>
+								<div class="col-sm-4">
+									<label for="r_customheight" class="control-label">Resolution Height</label>
+									<input class="form-control" name="r_customheight" id="r_customheight">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class ="row">
+						<div class="col-lg-12">
+							<h3>Mouse Settings</h3>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-sm-4 dfcfg-text">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="cl_mouseaccel" id="cl_mouseaccel"> Mouse Acceleration
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<label for="in_mouse" class="control-label">
+									Mouse Initialization
+									<span name="in_mouse_info" id="in_mouse_info"
+												class="glyphicon glyphicon-info-sign blue"
+												title="in_mouse"
+												data-placement="right"
+												data-toggle="tooltip"
+												data-html="true">
+									</span>
+									</label>
+									<select class="form-control" name="in_mouse" id="in_mouse">
+										<option>-1</option>
+										<option>1</option>
+										<option>2</option>
+										<option selected>3</option>
+									</select>
+								</div>
+								<div class="col-sm-4">
+									<label for="sensitivity" class="control-label">
+									Sensitivity
+									<span name="sensitivity_info" id="sensitivity_info"
+												class="btn btn-info btn-xs glyphicon glyphicon-question-sign"
+												data-original-title="Sensitivity"
+												data-content="Injx has a great mouse page <a href='http://www.funender.com/quake/mouse/index.html'>Here</a>"
+												data-placement="top"
+												data-toggle="popover"
+												data-html="true">
+									</span>
+									</label>
+									<input class="form-control" name="sensitivity" id="sensitivity" value="17.25">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class ="row">
+						<div class="col-sm-12">
+							<h3>Game Settings</h3>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-sm-6">
+									<label for="df_mp_nodrawradius" class="control-label">Player Nodraw Radius</label>
+									<input class="form-control" name="df_mp_nodrawradius" id="df_mp_nodrawradius" value="55">
+									<div class="checkbox dfcfg-text">
+										<label>
+											<input type="checkbox" name="cg_bob" id="cg_bob" checked> Disable View Bobbing
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<label for="cg_fov" class="control-label">Field Of View</label>
+									<input class="form-control" name="cg_fov" id="cg_fov">
+									<label for="cg_zoomfov" class="control-label">Zoom Field Of View</label>
+									<input class="form-control" name="cg_zoomfov" id="cg_zoomfov" value="10">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class ="row">
+						<div class="col-sm-12">
+							<h3>HUD Settings</h3>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-sm-4">
+									<div class="checkbox dfcfg-text">
+										<label>
+											<input type="checkbox" name="cg_drawtimer" id="cg_drawtimer" checked>Draw Map Time
+										</label>
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="cg_drawfps" id="cg_drawfps" checked>Draw FPS
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<label for="cg_drawcrosshair" class="control-label">Crosshair Style</label>
+									<select class="form-control" name="cg_drawcrosshair" id="cg_drawcrosshair">
+										<option>0</option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option selected>5</option>
+										<option>6</option>
+										<option>7</option>
+										<option>8</option>
+										<option>9</option>
+									</select>
+									<label for="cg_crosshairsize" class="control-label">Crosshair Size</label>
+									<input class="form-control" name="cg_crosshairsize" id="cg_crosshairsize" value="20">
+								</div>
+								<div class="col-sm-4">
+									<label for="df_hud_cgaz" class="control-label">CGAZ Hud Style</label>
+									<input class="form-control" name="df_hud_cgaz" id="df_hud_cgaz" value="9">
+									<label for="df_hud_cgaz_ypos" class="control-label">CGAZ Hud Y Position</label>
+									<input class="form-control" name="df_hud_cgaz_ypos" id="df_hud_cgaz_ypos" value="253">
+								</div>
+							</div>
+							<div class="row">
+								<hr>
+								<div class="col-sm-12">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="df_chs0_draw" id="df_chs0_draw" checked> Draw CHS0
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<hr>
+								<div class="col-sm-3">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="df_chs1_draw" id="df_chs1_draw" checked> Draw CHS1
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs1_fontsize" class="control-label">Font Size</label>
+									<input class="form-control" name="df_chs1_fontsize" id="df_chs1_fontsize" value="7">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs1_fonttransparency" class="control-label">Font Transparency</label>
+									<input class="form-control" name="df_chs1_fonttransparency" id="df_chs1_fonttransparency" value="0.75">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs1_info1" class="control-label">Info 1</label>
+									<input class="form-control" name="df_chs1_info1" id="df_chs1_info1" value="40">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs1_info2" class="control-label">Info 2</label>
+									<input class="form-control" name="df_chs1_info2" id="df_chs1_info2" value="">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs1_info3" class="control-label">Info 3</label>
+									<input class="form-control" name="df_chs1_info3" id="df_chs1_info3" value="23">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs1_info4" class="control-label">Info 4</label>
+									<input class="form-control" name="df_chs1_info4" id="df_chs1_info4" value="">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs1_info5" class="control-label">Info 5</label>
+									<input class="form-control" name="df_chs1_info5" id="df_chs1_info5" value="">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs1_info6" class="control-label">Info 6</label>
+									<input class="form-control" name="df_chs1_info6" id="df_chs1_info6" value="">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs1_info7" class="control-label">Info 7</label>
+									<input class="form-control" name="df_chs1_info7" id="df_chs1_info7" value="210">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs1_info8" class="control-label">Info 8</label>
+									<input class="form-control" name="df_chs1_info8" id="df_chs1_info8" value="">
+								</div>
+							</div>
+							<div class="row">
+								<hr>
+								<div class="col-sm-3">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="df_chs2_draw" id="df_chs2_draw" checked> Draw CHS2
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs2_fontsize" class="control-label">Font Size</label>
+									<input class="form-control" name="df_chs2_fontsize" id="df_chs2_fontsize" value="7">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs2_offsetx" class="control-label">Horizontal Offset</label>
+									<input class="form-control" name="df_chs2_offsetx" id="df_chs2_offsetx" value="-300">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs2_offsety" class="control-label">Vertical Offset</label>
+									<input class="form-control" name="df_chs2_offsety" id="df_chs2_offsety" value="150">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs2_info1" class="control-label">Info 1</label>
+									<input class="form-control" name="df_chs2_info1" id="df_chs2_info1" value="301">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs2_info2" class="control-label">Info 2</label>
+									<input class="form-control" name="df_chs2_info2" id="df_chs2_info2" value="302">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs2_info3" class="control-label">Info 3</label>
+									<input class="form-control" name="df_chs2_info3" id="df_chs2_info3" value="228">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs2_info4" class="control-label">Info 4</label>
+									<input class="form-control" name="df_chs2_info4" id="df_chs2_info4" value="14">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs2_info5" class="control-label">Info 5</label>
+									<input class="form-control" name="df_chs2_info5" id="df_chs2_info5" value="2031">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs2_info6" class="control-label">Info 6</label>
+									<input class="form-control" name="df_chs2_info6" id="df_chs2_info6" value="3041">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs2_info7" class="control-label">Info 7</label>
+									<input class="form-control" name="df_chs2_info7" id="df_chs2_info7" value="140">
+								</div>
+								<div class="col-sm-3">
+									<label for="df_chs2_info8" class="control-label">Info 8</label>
+									<input class="form-control" name="df_chs2_info8" id="df_chs2_info8" value="56">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<h3>Network Settings</h3>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-sm-3">
+									<label for="rate" class="control-label">Rate</label>
+									<input class="form-control" name="rate" id="rate" value="25000">
+								</div>
+								<div class="col-sm-3">
+									<label for="snaps" class="control-label">Snaps</label>
+									<input class="form-control" name="snaps" id="snaps" value="125">
+								</div>
+								<div class="col-sm-3">
+									<label for="cl_maxpackets" class="control-label">
+									Max Packets
+									<span name="cl_maxpackets_info" id="cl_maxpackets_info"
+												class="glyphicon glyphicon-info-sign blue"
+												title="cl_maxpackets"
+												data-placement="right"
+												data-toggle="tooltip"
+												data-html="true">
+									</span>
+									</label>
+									<input class="form-control" name="cl_maxpackets" id="cl_maxpackets" value="125">
+								</div>
+								<div class="col-sm-3">
+									<label for="cl_packetdup" class="control-label">Packet Duplicates</label>
+									<input class="form-control" name="cl_packetdup" id="cl_packetdup" value="0">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<h3>Miscellaneous Settings</h3>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-sm-12">
+									<label for="df_name" class="control-label">DeFRaG Demo Name</label>
+									<input class="form-control" name="df_name" id="df_name" value="Unnamed Player">
+								</div>
+							</div>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary col-sm-12" disabled>Generate (Sorry not done fixing this yet :))</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!--
+	Placed at the end of the document so the pages load faster, also using
+	cdn to possibly load the page faster
+	-->
+
+	<!-- jquery cdn + fallback -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+	<script>
+		if (!window.jQuery) {
+			document.write('<script src="js/lib/jquery-2.1.0.min.js"><\/script>');
+		}
+	</script>
+
+	<!-- bootstrap cdn + fallback -->
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script>
+		if (typeof $().modal != "function" ) {
+			document.write('<script src="js/lib/bootstrap.min.js"><\/script>');
+		}
+	</script>
+
+	<!-- some other JS -->
+	<script type="text/javascript">
+		form = document.forms["config"];
+		form.elements["r_customwidth"].value = screen.width;
+		form.elements["r_customheight"].value = screen.height;
+		form.elements["cg_fov"].value = Math.round((screen.width/screen.height)*78.75);
+		$("#r_picmip_info").tooltip();
+		$("#in_mouse_info").tooltip();
+		$("#cl_maxpackets_info").tooltip();
+		$("#sensitivity_info").popover();
+	</script>
+	</body>
 </html>
