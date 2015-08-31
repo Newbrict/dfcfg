@@ -5,6 +5,10 @@ function bool2int(someBool) {
 	return someBool ? 1 : 0;
 };
 
+$("#selectAll").click( function() {
+	$("#configOutput").select();
+});
+
 $("#generate").click( function() {
 
 	df_config = ''
