@@ -1,30 +1,34 @@
 body {
-  background: url('../img/binding_dark.png') repeat;
+	background: url('../img/binding_dark.png') repeat;
 }
 
 .dfcfg-main {
-  position: relative;
-  width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
+	position: relative;
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
 }
 
 .dfcfg-text {
-  line-height: 75px;
+	line-height: 75px;
+}
+
+body .modal-dialog {
+	width: 700px;
 }
 
 .blue {
-  color: #4099FF;
+	color: #4099FF;
 }
 
 .quake-logo {
-  background: url('../img/q3logo.png') no-repeat;
-  min-width: 256px;
-  min-height: 256px;
-  top: auto;
-  bottom: 0px;
-  right: 0px;
-  left: auto;
-  position: fixed;
+	background: url('../img/q3logo.png') no-repeat;
+	min-width: 256px;
+	min-height: 256px;
+	top: auto;
+	bottom: 0px;
+	right: 0px;
+	left: auto;
+	position: fixed;
 }
