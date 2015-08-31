@@ -2,16 +2,16 @@ body {
 	background: url('../img/binding_dark.png') repeat;
 }
 
+.dfcfg-text {
+	margin-top: 25px;
+}
+
 .dfcfg-main {
 	position: relative;
 	width: 700px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 20px;
-}
-
-.dfcfg-text {
-	line-height: 75px;
 }
 
 body .modal-dialog {

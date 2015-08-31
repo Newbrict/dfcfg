@@ -181,18 +181,21 @@ $("#generate").click( function() {
 
 	//DFWC RULESET
 
-	df_config += '\n\n//DFWC RULESET';
+	var wantsDFWC = $("#dfwc").is(":checked");
+	if( wantsDFWC ) {
+		df_config += '\n\n//DFWC RULESET';
 
-	df_config += '\nseta timescale "1"';
-	df_config += '\nseta g_synchronousClients "1"';
-	df_config += '\nseta pmove_fixed "0"';
-	df_config += '\nseta pmove_msec "8"';
-	df_config += '\nseta com_maxfps "125"';
-	df_config += '\nseta g_speed "320"';
-	df_config += '\nseta g_gravity "800"';
-	df_config += '\nseta g_knockback "1000"';
-	df_config += '\nseta sv_cheats "0"';
-	df_config += '\nseta handicap "100"';
+		df_config += '\nseta timescale "1"';
+		df_config += '\nseta g_synchronousClients "1"';
+		df_config += '\nseta pmove_fixed "0"';
+		df_config += '\nseta pmove_msec "8"';
+		df_config += '\nseta com_maxfps "125"';
+		df_config += '\nseta g_speed "320"';
+		df_config += '\nseta g_gravity "800"';
+		df_config += '\nseta g_knockback "1000"';
+		df_config += '\nseta sv_cheats "0"';
+		df_config += '\nseta handicap "100"';
+	}
 
 	//FILL THE MODAL OUTPUT
 	$("#configOutput").val(df_config);
