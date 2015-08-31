@@ -179,6 +179,8 @@ $("#generate").click( function() {
 	var cl_maxpackets = $("#cl_maxpackets").val();
 	df_config += `\nseta cl_maxpackets "${cl_maxpackets}"`;
 
+	df_config += '\nseta dl_source "http://ws.q3df.org/maps/download/%m"'
+
 	//DFWC RULESET
 
 	var wantsDFWC = $("#dfwc").is(":checked");
