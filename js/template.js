@@ -106,7 +106,7 @@ $("#generate").click( function() {
 	var df_name = $("#df_name").val();
 	df_config += `\nseta df_name "${df_name}"`;
 	
-	var df_country = $("df_country").val();
+	var df_country = $("#df_country").val();
 	df_config += `\nseta df_country "${df_country}"`;
 
 	df_config += '\nseta df_hud_color "8"';
