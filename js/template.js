@@ -125,7 +125,7 @@ $("#generate").click( function() {
 		for( var i = 1; i != 9; ++i ) {
 			var df_chs1_draw_infoi = $("#df_chs1_info"+i).val();
 			if(df_chs1_draw_infoi != "") {
-				df_config += `\nseta df_chs1_draw${i} "${df_chs1_draw_infoi}"`;
+				df_config += `\nseta df_chs1_info${i} "${df_chs1_draw_infoi}"`;
 			}
 		}
 	}
@@ -135,7 +135,7 @@ $("#generate").click( function() {
 		for( var i = 1; i != 9; ++i ) {
 			var df_chs2_draw_infoi = $("#df_chs2_info"+i).val();
 			if(df_chs2_draw_infoi != "") {
-				df_config += `\nseta df_chs2_draw${i} "${df_chs2_draw_infoi}"`;
+				df_config += `\nseta df_chs2_info${i} "${df_chs2_draw_infoi}"`;
 			}
 		}
 	}
